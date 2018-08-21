@@ -24,7 +24,7 @@ class HexToAsciiCsv:
                 string = vals[1]
                 value = bytearray.fromhex(string).decode()
 
-                vals.append(value)
+                vals[1]=value
                 ret_line = self.separator.join(vals)+"\n"
 
                 if self.verbose: print("Obrnjen: " + ret_line)
@@ -39,7 +39,7 @@ if __name__ == "__main__":
             if sys.argv[3] == "-v":
                 rsc = HexToAsciiCsv(sys.argv[1], sys.argv[2], True)
             else:
-                print("Obrne 2gi podatek v vrstici in ga shrani v file v isto mapo z istim imenom razen na koncu je _reversed")
+                print("Pretvori drugi podatek v ascii in ga shrani v file v isto mapo z istim imenom razen na koncu je _reversed")
                 print("Uporaba: python " + sys.argv[0] + " [pot_do_dokumenta] [\"separator\"] [optional: -v]")
 
 
@@ -48,6 +48,6 @@ if __name__ == "__main__":
         rsc.main()
         print("Obrnjeni podatki so v: " + rsc.dest_file)
     else:
-        print("Obrne 2gi podatek v vrstici in ga shrani v file v isto mapo z istim imenom razen na koncu je _reversed")
+        print("Pretvori drugi podatek v ascii in ga shrani v file v isto mapo z istim imenom razen na koncu je _reversed")
 
         print("Uporaba: python " + sys.argv[0] + " [pot_do_dokumenta] [\"separator\"] [optional: -v]")
